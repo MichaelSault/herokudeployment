@@ -1,10 +1,25 @@
 const express = require('express');
-const router = express.Router()
+const router = express.Router();
+const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
 
 const User = require('../models/User');
 
+const userSchema = new Schema({
+    name: {
+        type: String,
+        required: true
+    },
+    email: {
+        type: String,
+        required: true
+    }
+});
+
+const Users = mongoose.model("Users", userSchema);
+
 router.get('/', (req, res) => {
-    User.find()
+    Users.find()
         .then(users => res.json(users))
         .catch(err => console.log(err));
 });

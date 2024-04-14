@@ -8,7 +8,7 @@ const App = function () {
 	const [email, setEmail] = useState("");
 	useEffect(() => {
 		axios
-			.get("http://localhost:5000/backend/api/users")
+			.get("http://localhost:5000/getUsers")
 			.then((users) => setUsers(users))
 			.catch((err) => console.log(err));
 	}, []);
@@ -23,13 +23,13 @@ const App = function () {
 			return;
 		}
 		axios
-			.post("http://localhost:5000/backend/api/users", {
+			.post("http://localhost:5000/newUser", {
 				username: username,
 				email: email,
 			})
 			.then(function () {
 				alert("Account created successfully");
-				//window.location.reload();
+				window.location.reload();
 			})
 			.catch(function () {
 				alert("Could not create account. Please try again");
