@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router()
 
-const User = require('../models/user');
+const User = require('../models/User');
 
 router.get('/', (req, res) => {
     User.find()
@@ -10,6 +10,7 @@ router.get('/', (req, res) => {
 });
 
 router.post('/', (req, res) => {
+    console.log("user.js reached");
     const { name, email } = req.body;
     const newUser = new User({
         name: name, email: email
