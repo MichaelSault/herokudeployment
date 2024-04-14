@@ -1,7 +1,6 @@
 {
   "name": "herokudeployment",
   "version": "0.1.0",
-  "main": "App.js",
   "private": true,
   "proxy": "http://localhost:5000",
   "dependencies": {
@@ -13,6 +12,7 @@
     "cors": "^2.8.5",
     "express": "^4.19.2",
     "mongoose": "^8.3.1",
+    "nodemon": "^3.1.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-scripts": "5.0.1",
@@ -20,10 +20,11 @@
   },
   "scripts": {
     "start": "node backend/server.js",
+    "dev": "nodemon backend/server.js",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install && npm run build"
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix frontend && npm run build --prefix frontend"
   },
   "engines": {
     "node": "18.13.0"
