@@ -1,6 +1,7 @@
 {
   "name": "herokudeployment",
   "version": "0.1.0",
+  "main": "App.js",
   "private": true,
   "proxy": "http://localhost:5000",
   "dependencies": {
