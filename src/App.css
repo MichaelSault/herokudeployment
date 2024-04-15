@@ -1,38 +1,862 @@
-.App {
+@import "./fonts/font.css";
+
+.attireRow {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  height: 100vh;
+  justify-content: center;
+  padding: 3em 3em;
+  /* border-style: dashed; */
+  background-color: #f9f5f2;
+}
+
+.attireQuestionsCol {
+  display: flex;
+  flex-direction: row;
+  height: 85%;
+  width: 50%;
+  padding-top: 3em;
+  /* border-style: dashed; */
+  justify-content: center;
+
+}
+
+.attirePhotoCol {
+  height: 85%;
+  width: 50%;
+  /* border-style: dashed; */
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  justify-content: center;
+}
+
+.attireQuestionsSubCol {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  padding-top: 3em;
+  align-self: center;
+}
+
+.attireImage {
+  padding-top: 3em;
+  width: 70%;
+  height: fit-content;
+  min-width: 350px;
+  align-self: center;
+}
+
+body {
+  flex-direction: column;
+  justify-content: flex-start;
+  
+}
+
+#bodyCarousel {
+  max-width: 40%;
+  align-self: center;
+  align-items: center;
+  margin-bottom: 4em;
+  margin-top: 4em;
+}
+
+#bodyEventCards {
+  align-self: center;
+}
+
+#bodyGuestList {
+  max-width: 50%;
+  align-self: center;
+  margin-bottom: 2em;
+  height: 100%;
+  padding-bottom: 5em;
+}
+
+#bodyTest {
+  padding-top: 20vh;
+  max-width: 50%;
+  align-self: center;
+  margin-bottom: 2em;
+  height: 100vh;
+}
+
+.cardLinks {
+  align-self: flex-end;
+}
+
+.cardText {
+  max-width: 300px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.center {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  height: 50%;
+}
+
+.engagementShootCol {
+  width: 50%;
+  /* border-style: dashed; */
+  display: flex;
+  align-items: center;
+  flex-direction: column; 
+  text-align: left;
+  margin-top: 5em;
+
+}
+
+.engagementShootSubColMobile {
+  min-width: 370px;
+  width: 100%;
+  /* border-style: dashed; */
+  display: block;
+  margin: auto;
+  padding: 2em;
+  display: flex;
+  flex-direction: column;
+}
+
+.engagementShootSubColDesktop {
+  min-width: 370px;
+  width: 75%;
+  /* border-style: dashed; */
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  padding-top: 7em;
+}
+
+.engagementShootPhotoCol {
+  min-width: 370px;
+  width: 80%;
+  /* border-style: dashed; */
+  display: block;
+  margin: auto;
+}
+
+.engagementShootRow {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  min-height: 100vh;
+  justify-content: center;
+  padding: 3em 3em;
+  /* border-style: dashed; */
+  background-color: #e8ddd4;
+}
+
+.faqTitleSubCol {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  /* border-style: dashed; */
+  justify-content: start;
+  padding-top: 5em;
+}
+
+#event {
+  border-color: red;
+  /* border-style: dashed; */
+  width: 384px;
+  min-width: 384px;
+  height: 150px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  text-align: left;
+}
+
+.eventCard {
+  padding: .5em;
+  height: 300px;
+  min-width: 300px;
+  display: flex;
+  flex-direction: column;
+}
+
+.eventCardRSVP {
+  padding: .5em;
+  height: 400px;
+  min-width: 300px;
+  display: flex;
+  flex-direction: column;
+}
+
+.eventCardsRow {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.eventDetails {
+  min-width: 60%;
+  padding-bottom: 1em;
+  padding-top: 1em;
+  margin-bottom: 5em;
+  margin-top: 0;
+  padding-left: 3em;
+  flex-direction: column;
+}
+
+.EventHeader {
+  /* background-image: url('./assets/Header/WeddingHeaderWide.jpg'); */
+  background-color: #141414;
+  background-position: center top;
+  min-width: 100%;
+  height: 100vh;
+  padding-bottom: 1em;
+  padding-top: 1em;
+  margin-bottom: 0;
+  margin-top: 0;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.EventHeaderMirror {
+  /* background-image: url('./assets/Header/WeddingHeaderWide.jpg'); */
+  background-color: #1a1919;
+  background-position: center top;
+  min-width: 100%;
+  height: 100vh;
+  padding-bottom: 1em;
+  padding-top: 1em;
+  margin-bottom: 0;
+  margin-top: 0;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.eventName {
+  min-width: 40%;
+  min-height: 100%;
+  padding-bottom: 1em;
+  padding-top: 1em;
+  margin-bottom: 1em;
+  margin-top: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.eventRowLeft {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-left: 3em;
+}
+
+.eventRowRight {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-right: 3em;
+}
+
+#eventTitle {
+  font-size: 15vw;
+  justify-content: flex-start;
+  min-width: 100%;
+}  
+
+#eventText {
+  font-size: 3vw;
+  display: flex;
+  justify-content: flex-start;
+}
+
+#eventTextinfo {
+  font-size: 2.5vw;
+  display: flex;
+  color: #ffffff;
+  text-shadow: 1px 2px 0 #000;
+}
+
+.faqTitleCol {
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+  width: 50%;
+  /* border-style: dashed; */
+  justify-content: center;
+}
+
+.faqTitleSubCol {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  min-width: 270px;
+  /* border-style: dashed; */
+  justify-content: start;
+  padding-top: 5em;
+}
+
+.faqQuestionsCol {
+  height: 100%;
+  width: 50%;
+  /* border-style: dashed; */
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.faqQuestionsSubCol {
+  height: 100%;
+  width: 75%;
+  min-width: 295px;
+  /* border-style: dashed; */
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  padding-top: 7em;
+  align-self: center;
+}
+
+.faqRow {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  min-height: 100vh;
+  justify-content: center;
+  padding: 3em 3em;
+  /* border-style: dashed; */
+  background-color: #f6f2e7;
+}
+
+h1 {
+  font-size: 90px;
+  font-family: 'DreamAvenue';
+  color: hwb(0 0% 100%);
+  padding-top: 4em;
+  padding-left: 1em;
+}
+
+h2 {
+  font-size: 20px;
+  font-family: 'Montserrat';
+  color: #5c5a5a;
+  margin: 0;
+  font-weight: bold;
+}
+
+.attireSubText {
+  align-self: center;
+}
+
+.faqEmail {
+  font-size: 15px;
+}
+
+h3 {
+  font-size: 15px;
+  font-family: 'Montserrat';
+  color: #000000;
+  margin: 0 0 20px 0;
+}
+
+h4 {
+  font-size: 60px;
+  font-family: 'Playfair';
+  text-align: cent;
+  margin: 0;
+  color: #5c5a5a;
+}
+
+h5 {
+  font-size: 5em;
+  font-family: 'Syne';
+  padding-top: 1em;
+  color: #5c5a5a
+}
+
+h6 {
+  font-size: 60px;
+  font-family: 'Playfair';
+  margin: 0;
+  color: #5c5a5a;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.rsvpText {
+  font-size: 30px;
+  font-family: Elsie-Regular;
+  margin: 0;
+  color: #5c5a5a;
+  text-align: center;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.poiret {
+  font-family: PoiretOne;
+  color: #000000;
+  size: 30px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.elsie {
+  font-family: Elsie-Regular;
+}
+
+.syne {
+  font-family: Syne;
+}
+
+.song {
+  color: whitesmoke;
+}
+
+.attireTitle {
+  min-width: 100%;
+}
+
+hr {
+  align-self: center;
+  width: 60%;
+  border-width: 2px;
+}
+
+.hrAttire {
+  align-self: center;
+  width: 60%;
+}
+
+.hrFaq {
+  align-self: center;
+  width: 60%;
+}
+
+.hrSongTitle {
+  align-self: center;
+  width: 45%;
+}
+
+.hrRSVP {
+  align-self: center;
+  width: 100%;
+}
+
+.ImageHeader {
+  background-image: url('./assets/Header/Header.png');
+  background-position: center left;
+  width: 100%;
+  height: 100vh;
+  padding-top: 1em;
+  margin-top: 0;
+  display: flex;
+  justify-content: flex-start;
+}
+
+#primaryEvents {
+  height: 100vh;
+  display: flex;
+  justify-content: flex-start; 
+  width: 100%;
+  height: 150px;
+  min-width: 957px;
+}
+
+.registryRow {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  height: 100vh;
+  /* border-style: dashed; */
+  background-color: #e8ddd4;
+  align-content: space-between;
+}
+
+.registryTitle {
   display: flex;
   flex-direction: column;
+  width: 100%;
+  min-width: 270px;
+  /* border-style: dashed; */
+  justify-content: start;
+  padding-top: 5em;
+}
+
+.registryDescription {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-width: 270px;
+  /* border-style: dashed; */
+  justify-content: start;
+  padding-top: 5em;
+}
+
+#root {
+  margin: 0 auto;
+  padding-bottom: 0;
+  text-align: center;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  background-color: rgba(196, 196, 179, 0.6);
+}
+
+.rsvpRow {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
   align-items: center;
+  height: 100vh;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  /* border-style: dashed; */
+  background-color: #f6f2e7;
 }
 
-.App-link {
-  color: #61dafb;
+.rsvpTitleCol {
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+  width: 50%;
+  /* border-style: dashed; */
+  justify-content: center;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.rsvpTitleSubCol {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  min-width: 270px;
+  /* border-style: dashed; */
+  justify-content: start;
+  padding-top: 5em;
+}
+
+.rsvpDeadline {
+  max-height: 50%;
+  width: 50%;
+  /* border-style: dashed; */
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  justify-content: center;
+}
+
+.rsvpTagButton {
+  width: 15em;
+  background-color: #c5c9c960;
+}
+
+.scheduleImageSubCol {
+  width: 90%;
+  min-width: 295px;
+  max-width: 540px;
+  /* border-style: dashed; */
+  display: block;
+  margin: auto;
+  flex-direction: column;
+  text-align: left;
+}
+
+.scheduleTitleSubCol {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  /* border-style: dashed; */
+  justify-content: center;
+  padding-top: .5em;
+}
+
+.attireTitleSubCol {
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  /* border-style: dashed; */
+  justify-content: space-around;
+}
+
+.songImageCol {
+  min-width: 700px;
+  max-width: 850px;
+  /* border-style: dashed; */
+  display: flex;
+  margin: auto;
+  flex-direction: column;
+  text-align: left;
+}
+
+.songImageSubCol {
+  width: 100%;
+  min-width: 295px;
+  max-width: 850px;
+  /* border-style: dashed; */
+  display: block;
+  margin: auto;
+  flex-direction: column;
+  text-align: left;
+}
+
+.scheduleRow {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  min-height: 100vh;
+  justify-content: center;
+  padding: 3em 3em;
+  /* border-style: dashed; */
+  background-color: #fffbf7;
+}
+
+.scheduleCol {
+  height: 100%;
+  width: 35%;
+  /* border-style: dashed; */
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.scheduleTitleCol {
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+  width: 100%;
+  /* border-style: dashed; */
+  justify-content: center;
+}
+
+.songRow {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  min-height: 100vh;
+  justify-content: center;
+  padding: 3em 3em;
+  /* border-style: dashed; */
+  background-color: #141414;
+}
+
+.songTitleCol {
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+  width: 60%;
+  /* border-style: dashed; */
+  justify-content: center;
+}
+
+.songTitleSubCol {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-width: 290px;
+  /* border-style: dashed; */
+  justify-content: start;
+  padding-top: 6em;
+}
+
+.titleText {
+  align-content: left;
+}
+
+.weddingEventsBackground {
+  background-color: #f5f5ef;
+}
+
+@media only screen and (max-width: 949px) {
+  .mobile-hidden {
+    display: none;
   }
-  to {
-    transform: rotate(360deg);
+  .mobile-shown {
+    display: block;
+    width: 100%;
   }
+
+  .engagementShootRow {
+    padding: 0;
+  }
+  .engagementShootCol {
+    width: 100%;
+    flex-direction: column;
+  }
+
+  .engagementShootSubColDesktop {
+    display: none;
+  }
+
+  .scheduleTitleSubCol {
+    display: flex;
+    width: 100%;
+    padding: 0;
+  }
+  
+  .faqQuestionsCol {
+    width: 100%;
+  }
+  .scheduleImageSubCol {
+    padding: 2em;
+  }
+  .faqTitleSubCol {
+    width: 100%;
+    padding: 0;
+  }
+
+  .faqQuestionsSubCol {
+    width: 100%;
+    padding-top: 2em;
+  }
+
+  .attireRow {
+    min-height: 100vh;
+    height: auto;
+  }
+
+  .attirePhotoCol { 
+    width: 100%;
+  }
+
+  .attireImage {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .attireQuestionsCol {
+    width: 100%;
+    height: auto;
+  }
+
+  .songTitleCol {
+    width: 100%;
+    padding-top: 0;
+  }
+  
+  .songTitleSubCol {
+    width: 100%;
+    padding-top: 0;
+  }
+
+  .songImageCol {
+    min-width: 350px;
+  }
+
+  .rsvpRow {
+    height: 100vh;
+  }
+
+  .rsvpTitleCol {
+    width: 100%;
+  }
+
+  .rsvpTitleSubCol {
+    width: 100%;
+  }
+
+  .rsvpDeadline {
+    width: 100%;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .engagementShootRow {
+    padding-bottom: 5em;
+  }
+
+  .registryRow {
+    height: 70vh;
+  }
+
+  .registryImage {
+    display: none;
+  }
+
+  .registryImageMobile {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    max-width: 100vw;
+    justify-content: center;
+    background-color: #e8ddd4;
+  }
+
+  .scheduleCol {
+    height: 100%;
+    width: 100%;
+    /* border-style: dashed; */
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+  }
+
+  h6, h4{
+    font-size: 50px;
+  }
+
+  .engagementTitle {
+    font-size: 48px;
+  }
+}
+
+@media only screen and (min-width: 950px) {
+  .mobile-hidden {
+    display: block;
+  }
+  .mobile-shown {
+    display: none;
+  }
+
+  .engagementShootSubColMobile {
+    display: none
+  }
+
+  .rsvpRow {
+    align-items: center;
+  }
+
+  .rsvpTitleCol {
+    width: 100%;
+  }
+
+  .rsvpTitleSubCol {
+    width: 100%;
+  }
+
+  .rsvpDeadline {
+    width: 100%;
+    padding-top: 4em;
+    align-items: center;
+    text-align: center;
+  }
+
+  .attireImage {
+    padding-top: 5em;
+    max-width: 525px;
+  }
+
+  .registryImage {
+    display: flex;
+    flex-direction: row;
+    min-height: 50vh;
+    min-width: 100vw;
+    justify-content: center;
+    align-items: center;
+    background-color: #e8ddd4;
+  }
+
+  .registryImageMobile {
+    display: none;
+  }
+
+  .eventCardsRow {
+    padding: 1em 0em;
+  }
+
 }
