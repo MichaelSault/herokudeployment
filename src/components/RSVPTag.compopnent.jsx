@@ -232,7 +232,7 @@ function RSVPTag() {
                     <hr className='hrRSVP'/>
             </div>
             <div className='rsvpDeadline'>
-                <p className='elsie rsvpText'>We kindly request your response by May 6, 2024.  Cheers!</p>
+                <p className='elsie rsvpText'>We kindly request your response by July 11, 2024.  Cheers!</p>
             
             <FloatingLabel
                 controlId="firstName"
