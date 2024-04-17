@@ -8,6 +8,8 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min";
 
 import Home from './components/home.component.jsx';
+import AddGuest from './components/addGuest.component.jsx';
+import GuestList from './components/guestList.component.jsx';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
@@ -16,6 +18,8 @@ root.render(
     <BrowserRouter>
       <Routes>
         <Route path='/' element={<Home/>}/>
+        <Route path='/Invite' element={<AddGuest/>}/>
+        <Route path='/Guests' element={<GuestList/>}/>
       </Routes>
     </BrowserRouter>
   </React.StrictMode>

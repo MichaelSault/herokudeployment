@@ -46,7 +46,7 @@ export default function Navbar() {
 
   const verifyJWT = async (token) => {
     console.log("token: ", token)
-    const tokenData = await fetch('http://localhost:3001/verifyJWT', {
+    const tokenData = await fetch('http://localhost:5000/verifyJWT', {
     method: 'POST',
     headers: {
         'Content-Type': 'application/json',
@@ -66,7 +66,7 @@ export default function Navbar() {
 
   const decodeJWT = async (token) => {
     console.log("token: ", token)
-    const guestData = await fetch('http://localhost:3001/decodeJWT', {
+    const guestData = await fetch('http://localhost:5000/decodeJWT', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',

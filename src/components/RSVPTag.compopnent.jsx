@@ -12,20 +12,6 @@ function RSVPTag() {
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
-
-    const [returnedData, setReturnedData] = useState({
-        family: "", 
-        firstName: "", 
-        lastName: "",
-        sangeet: "",
-        maiyan: "",
-        mendhi: "",
-        choora: "",
-        sikh: "",
-        civil: "",
-        diet: "",
-        comment: ""
-    });
     
     const [rsvpData, setRsvpData] = useState({
         family: String, 
@@ -81,10 +67,10 @@ function RSVPTag() {
     
     const handleSubmit = async(event) => {
         event.preventDefault();
-        console.log(rsvpData.email);
+        console.log(rsvpData);
 
         //use this function if RSVP-ing with full name
-        const familyData = await axios.get("http://localhost:3001/getFamily", {params: {firstName: rsvpData.firstName, lastName: rsvpData.lastName}})
+        const familyData = await axios.get("http://localhost:5000/getFamily", {params: {firstName: rsvpData.firstName, lastName: rsvpData.lastName}})
         .then(res => res.data)
         .catch(err => console.log(err));
 
@@ -101,7 +87,7 @@ function RSVPTag() {
         {returnedFamilyData.map((family) => {
             console.log(family);
             //use this function if RSVP-ing with full name
-            const familyData = axios.post("http://localhost:3001/submitRSVP", family)
+            const familyData = axios.post("http://localhost:5000/submitRSVP", family)
             .then(res => res.data)
             .catch(err => console.log(err));
 
