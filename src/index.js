@@ -15,12 +15,12 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 
 root.render(
   <React.StrictMode>
-    <BrowserRouter>
+    <HashRouter>
       <Routes>
         <Route path='/' element={<Home/>}/>
-        <Route path='/Invite' element={<AddGuest/>}/>
-        <Route path='/Guests' element={<GuestList/>}/>
+        <Route path='/UnlistedPage/Invite' element={<AddGuest/>}/>
+        <Route path='/UnlistedPage/GuestList' element={<GuestList/>}/>
       </Routes>
-    </BrowserRouter>
+    </HashRouter>
   </React.StrictMode>
 );

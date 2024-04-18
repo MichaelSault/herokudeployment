@@ -458,6 +458,11 @@ hr {
   justify-content: flex-start;
 }
 
+.modal {
+  height: 90% !important;
+  top: 70px !important;
+}
+
 #primaryEvents {
   height: 100vh;
   display: flex;
