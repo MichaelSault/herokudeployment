@@ -27,7 +27,7 @@ function GuestList() {
   const c = 2;
 
     useEffect(() => {
-        axios.get("http://localhost:5000/guests")
+        axios.get("https://tanya-wedding-website-94146677832a.herokuapp.com/guests")
         .then(res => {
             console.log(res);
             setGuests(res.data);

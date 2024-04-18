@@ -87,7 +87,7 @@ function RSVPTag() {
         {returnedFamilyData.map((family) => {
             console.log(family);
             //use this function if RSVP-ing with full name
-            const familyData = axios.post("http://localhost:5000/submitRSVP", family)
+            const familyData = axios.post("/submitRSVP", family)
             .then(res => res.data)
             .catch(err => console.log(err));
 
