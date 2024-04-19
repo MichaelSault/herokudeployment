@@ -46,7 +46,7 @@ export default function Navbar() {
 
   const verifyJWT = async (token) => {
     console.log("token: ", token)
-    const tokenData = await fetch('http://localhost:5000/verifyJWT', {
+    const tokenData = await fetch('https://tanya-wedding-website-94146677832a.herokuapp.com/verifyJWT', {
     method: 'POST',
     headers: {
         'Content-Type': 'application/json',
@@ -66,7 +66,7 @@ export default function Navbar() {
 
   const decodeJWT = async (token) => {
     console.log("token: ", token)
-    const guestData = await fetch('http://localhost:5000/decodeJWT', {
+    const guestData = await fetch('https://tanya-wedding-website-94146677832a.herokuapp.com/decodeJWT', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',

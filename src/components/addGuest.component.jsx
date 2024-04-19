@@ -61,7 +61,7 @@ function AddGuest() {
         event.preventDefault();
         console.log(guest);
 
-        axios.post("http://localhost:5000/InviteGuest", guest)
+        axios.post("https://tanya-wedding-website-94146677832a.herokuapp.com/InviteGuest", guest)
         .then(res => console.log(res))
         .catch(err => console.log(err));
 

@@ -59,7 +59,7 @@ const EventCard = forwardRef(
 
             console.log("updating rsvp value to:", rsvp);
         
-            axios.put(`http://localhost:5000/rsvpEvent/`, {email: guestEmail, eventName: eventName, rsvpValue: rsvp})
+            axios.put(`https://tanya-wedding-website-94146677832a.herokuapp.com/rsvpEvent/`, {email: guestEmail, eventName: eventName, rsvpValue: rsvp})
             .then(res => console.log(res))
             .catch((err) => console.log(err));
         

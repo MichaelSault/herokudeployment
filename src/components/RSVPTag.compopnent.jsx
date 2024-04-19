@@ -70,7 +70,7 @@ function RSVPTag() {
         console.log(rsvpData);
 
         //use this function if RSVP-ing with full name
-        const familyData = await axios.get("http://localhost:5000/getFamily", {params: {firstName: rsvpData.firstName, lastName: rsvpData.lastName}})
+        const familyData = await axios.get("https://tanya-wedding-website-94146677832a.herokuapp.com/getFamily", {params: {firstName: rsvpData.firstName, lastName: rsvpData.lastName}})
         .then(res => res.data)
         .catch(err => console.log(err));
 

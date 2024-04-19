@@ -39,7 +39,7 @@ function GuestList() {
     const deletePost = (id) => {
         console.log(id);
         axios
-            .delete(`http://localhost:5000/delete/${id}`)
+            .delete(`https://tanya-wedding-website-94146677832a.herokuapp.com/delete/${id}`)
             .then(res => console.log(res))
             .catch(err => console.log(err));
 
@@ -73,7 +73,7 @@ function GuestList() {
 
     const saveUpdatedGuest = () => {
         console.log(updatedGuest);
-        axios.put(`http://localhost:5000/update/${updatedGuest._id}`, updatedGuest)
+        axios.put(`https://tanya-wedding-website-94146677832a.herokuapp.com/update/${updatedGuest._id}`, updatedGuest)
         .then(res => console.log(res))
         .catch((err) => console.log(err));
 

@@ -8,7 +8,7 @@ const App = function () {
 	const [email, setEmail] = useState("");
 	useEffect(() => {
 		axios
-			.get("http://localhost:5000/getUsers")
+			.get("https://tanya-wedding-website-94146677832a.herokuapp.com/getUsers")
 			.then((users) => setUsers(users))
 			.catch((err) => console.log(err));
 	}, []);
@@ -23,7 +23,7 @@ const App = function () {
 			return;
 		}
 		axios
-			.post("http://localhost:5000/newUser", {
+			.post("https://tanya-wedding-website-94146677832a.herokuapp.com/newUser", {
 				username: username,
 				email: email,
 			})
