@@ -94,7 +94,7 @@ function GuestList() {
     <>
         <TitleHeader Title={'Guest List'}/> 
         <div id='bodyGuestList' style={{width:"100%", margin:"auto auto", textAlign:"center"}}>
-        <h2>Guests:</h2>
+        <h2>Guest List</h2>
 
         <Modal show={show} onHide={handleClose}>
             <Modal.Header>

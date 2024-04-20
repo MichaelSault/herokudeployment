@@ -70,7 +70,7 @@ function AddGuest() {
     return(
         <>
             <TitleHeader Title={'Invite a Guest'}/>
-            <div id='bodyTest' style={{width:"100%", margin:"auto auto", textAlign:"center"}}>
+            <div id='inviteBody' style={{width:"100%", margin:"auto auto", textAlign:"center"}}>
             <h6>Invite a Guest</h6>
             <Form>
                 <Form.Group>

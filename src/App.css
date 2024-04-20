@@ -54,7 +54,7 @@
 body {
   flex-direction: column;
   justify-content: flex-start;
-  
+  background-color: #f6f2e7;
 }
 
 #bodyCarousel {
@@ -70,7 +70,7 @@ body {
 }
 
 #bodyGuestList {
-  max-width: 50%;
+  max-width: 75%;
   align-self: center;
   margin-bottom: 2em;
   height: 100%;
@@ -391,6 +391,14 @@ h6 {
   text-align: center;
 }
 
+#inviteBody {
+  max-width: 75%;
+  align-self: center;
+  margin-bottom: 2em;
+  padding-top: 20px;
+  height: 100vh;
+}
+
 .rsvpText {
   font-size: 30px;
   font-family: Elsie-Regular;
@@ -511,7 +519,7 @@ hr {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  background-color: rgba(196, 196, 179, 0.6);
+  background-color: #f6f2e7;
 }
 
 .rsvpRow {
