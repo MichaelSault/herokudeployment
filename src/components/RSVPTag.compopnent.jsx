@@ -82,7 +82,10 @@ function RSVPTag() {
 
     const submitRSVP = async(event) => {
         event.preventDefault();
+        const submitCount = 0;
         console.log(returnedFamilyData);
+
+        console.log(returnedFamilyData.length);
 
         {returnedFamilyData.map((family) => {
             console.log(family);
@@ -93,6 +96,9 @@ function RSVPTag() {
 
             console.log(familyData);
         })}
+
+        alert("RSVP Submitted Successfully");
+        handleClose();
     };
 
 
