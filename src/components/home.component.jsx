@@ -7,7 +7,7 @@ import EventCard from './eventCard.component';
 import FAQ from './faq.componenet';
 import EngagementShoot from './engagementShoot.component';
 import Schedule from './schedule.component';
-// import Songs from './songs.component';
+import Songs from './songs.component';
 // import Registry from './registry.component';
 import Attire from './attire.component';
 import RSVPTag from './RSVPTag.compopnent';
@@ -37,7 +37,7 @@ function Home() {
   const scheduleRef = useRef();
   const faqRef = useRef();
   const engagementShootRef = useRef();
-  // const songRef = useRef();
+  const songRef = useRef();
   // const registryRef = useRef();
   const attireRef = useRef();
   const rsvpRef = useRef();
@@ -114,7 +114,7 @@ function Home() {
                   <MenuItem onClick={() => scrollToSection(scheduleRef)}><div className='poiret'>Schedule</div></MenuItem>
                   <MenuItem onClick={() => scrollToSection(faqRef)}><div className='poiret'>FAQs</div></MenuItem>
                   <MenuItem onClick={() => scrollToSection(engagementShootRef)}><div className='poiret'>Engagement Shoot</div></MenuItem>
-                  {/* <MenuItem onClick={() => scrollToSection(songRef)}><div className='poiret'>Songs</div></MenuItem> */}
+                  <MenuItem onClick={() => scrollToSection(songRef)}><div className='poiret'>Songs</div></MenuItem>
                   {/* <MenuItem onClick={() => scrollToSection(registryRef)}><div className='poiret'>Registry</div></MenuItem> */}
                   <MenuItem onClick={() => scrollToSection(attireRef)}><div className='poiret'>Attire</div></MenuItem>
                   <MenuItem onClick={() => scrollToSection(rsvpRef)}><div className='poiret'>RSVP</div></MenuItem>
@@ -146,9 +146,9 @@ function Home() {
           <EngagementShoot/>
         </div>
 
-        {/* <div ref={songRef}>
+        <div ref={songRef}>
           <Songs/>
-        </div> */}
+        </div>
 
         {/* <div ref={registryRef}>
           <Registry/>

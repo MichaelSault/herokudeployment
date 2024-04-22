@@ -28,6 +28,9 @@
     "universal-cookie": "^7.1.4",
     "web-vitals": "^2.1.4"
   },
+  "devDependencies": {
+    "@babel/plugin-transform-private-property-in-object": "^7.24.1"
+  },
   "scripts": {
     "start": "node backend/server.js",
     "dev": "nodemon backend/server.js",
