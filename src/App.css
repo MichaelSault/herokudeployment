@@ -403,6 +403,7 @@ h6 {
   font-size: 30px;
   font-family: Elsie-Regular;
   margin: 0;
+  margin-bottom: 1.5em;
   color: #5c5a5a;
   text-align: center;
 }
@@ -524,7 +525,7 @@ hr {
 
 .rsvpRow {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   flex-wrap: wrap;
   align-items: center;
   height: 100vh;
