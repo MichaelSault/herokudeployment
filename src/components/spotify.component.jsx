@@ -27,7 +27,7 @@ function Spotify() {
 
     const handleChange = (event) => {
         const {name, value} = event.target;
-        console.log(value);
+        console.log(searchInput);
     
         setSearchInput(prev => {
             return {
@@ -37,6 +37,27 @@ function Spotify() {
         });
     };
 
+    // Spotify Search function
+    async function search() {
+        console.log("Search for " + searchInput.searchText);
+
+
+        //GET request to get artistID
+        var artistParameters = {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer ' + accessToken
+            }
+        }
+
+        var artistID = await fetch('https://api.spotify.com/v1/search?q=' + searchInput.searchText + '&type=artist', artistParameters)
+            .then(response => response.json())
+            .then(data => console.log(data))
+        //display the artists albums
+
+    }
+
     return (
         <>
             <div className='spotifyRow'>
@@ -45,14 +66,16 @@ function Spotify() {
                         <FormControl
                             placeholder='Search For Artist'
                             type='input'
+                            name='searchText'
                             onKeyPress={event => {
                                 if (event.key == "Enter") {
                                     console.log("Pressed enter");
+                                    search();
                                 }
                             }}
                             onChange={(e) => handleChange(e)}
                         />
-                        <Button onClick={() => {console.log("button is clicked")}}>
+                        <Button onClick={() => {search()}}>
                             Search
                         </Button>
                     </InputGroup>
