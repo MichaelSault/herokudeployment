@@ -10,7 +10,7 @@ const CLIENT_SECRET = process.env.REACT_APP_SPOTIFY_SECRET;
 function Spotify() {
     const [searchInput, setSearchInput] = useState("");
     const [accessToken, setAccessToken] = useState("");
-    const [albums, setAlbums] = useState([]);
+    const [songs, setSongs] = useState([]);
 
     useEffect(() => {
         // API Access Token
@@ -52,29 +52,31 @@ function Spotify() {
             }
         }
 
-        var artistID = await fetch('https://api.spotify.com/v1/search?q=' + searchInput.searchText + '&type=artist', searchParameters)
+        var songID = await fetch('https://api.spotify.com/v1/search?q=' + searchInput.searchText + '&type=track', searchParameters)
             .then(response => response.json())
-            .then(data => {return data.artists.items[0].id})
+            .then(data => {
+                console.log(data.tracks.items);
+                setSongs(data.tracks.items);
+            })
 
-        console.log("Artist ID is " + artistID);
+        console.log("Track ID is " + songID);
         //get request with artist ID grab all the albums from that artist
-        var returnedAlbums = await fetch('https://api.spotify.com/v1/artists/' + artistID + '/albums' + '?include_groups=album&market=US&limit=50', searchParameters)
+        /* var returnedSongs = await fetch('https://api.spotify.com/v1/tracks/' + songID + '/albums' + '?include_groups=track&market=US&limit=50', searchParameters)
             .then(response => response.json())
             .then(data => {
                 console.log(data);
-                setAlbums(data.items);
-            });
-        //display the artists albums
+                setSongs(data.items);
+            }); */
         
     }
-    console.log(albums);
+    console.log(songs);
     return (
         <>
             <div className='spotifyRow'>
                 <Container>
                     <InputGroup className='mb-3' size="lg">
                         <FormControl
-                            placeholder='Search For Artist'
+                            placeholder='Search For Songs'
                             type='input'
                             name='searchText'
                             onKeyPress={event => {
@@ -92,14 +94,14 @@ function Spotify() {
                 </Container>
                 <Container>
                     <Row className='mx-2 row row-cols-4'>
-                        {albums.map((album, i) => {
+                        {songs.map((song, i) => {
                             return (
                                 <Card>
-                                    <a href={album.external_urls.spotify} target="_blank">
-                                        <Card.Img src={album.images[0].url} />
+                                    <a href={song.external_urls.spotify} target="_blank">
+                                        <Card.Img src={song.album.images[0].url} />
                                     </a>
                                     <Card.Body>
-                                        <Card.Title>{album.name}</Card.Title>
+                                        <Card.Title>{song.name}</Card.Title>
                                     </Card.Body>
                                 </Card>
                             )
