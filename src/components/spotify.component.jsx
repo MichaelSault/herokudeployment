@@ -69,6 +69,35 @@ function Spotify() {
             }); */
         
     }
+
+    // Spotify Search function
+    async function addSong(song) {
+        console.log("Adding song: " + song);
+
+
+        //GET request to get artistID
+        var searchParameters = {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer ' + accessToken
+            },
+            body: {
+                'position': 0
+            }
+        }
+
+        var updatedPlaylist = await fetch('https://api.spotify.com/v1/playlists/4RucsnbAYwsUa7FkmPDJJi/tracks?uris=' + song , searchParameters)
+            .then(response => response.json())
+            .then(data => {
+                console.log(data.tracks.items);
+                setSongs(data.tracks.items);
+            })
+
+        
+        
+    }
+
     console.log(songs);
     return (
         <>
@@ -103,6 +132,7 @@ function Spotify() {
                                     <Card.Body>
                                         <Card.Title>{song.name}</Card.Title>
                                     </Card.Body>
+                                    <Button onClick={() => addSong(song.uri)}>Add Song</Button>
                                 </Card>
                             )
                         })}
