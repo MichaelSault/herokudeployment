@@ -5,12 +5,28 @@ import { useState, useEffect } from 'react';
 //react has a built in dotenv, so we do not have to install it manually
 const CLIENT_ID = process.env.REACT_APP_SPOTIFY_ID;
 const CLIENT_SECRET = process.env.REACT_APP_SPOTIFY_SECRET;
-
+const REDIRECT_URI = process.env.REACT_APP_REDIRECT_URI;
+const AUTH_ENDPOINT = "https://accounts.spotify.com/authorize"
+const RESPONSE_TYPE = "token"
 
 function Spotify() {
     const [searchInput, setSearchInput] = useState("");
     const [accessToken, setAccessToken] = useState("");
     const [songs, setSongs] = useState([]);
+
+    //expecting http://localhost:5000/#access_token=BQDkVYFtNgdg0NOIFgMMT_PNXg43ZprAAmznLI6PnFpI60ZNTctdMaeecAmz3aZ7xftxzrf9nyYmthTVR8sC1kPSPtDl4KMEDE20KGbRPEx9lLtCJrLhiJ8Df1fPnW1iinRyimKEKP0gFoDy-Gj_W9QlzAR0PvIWK6ltL4m0lfOVFg&token_type=Bearer&expires_in=3600
+    const getReturnedParamsFromSpotifyAuth = (hash) => {
+        const stringAfterHashtag = hash.substring(1);
+        const paramsInUrl = stringAfterHashtag.split("&");
+
+        const paramsSplit = paramsInUrl.reduce((accumulater, currentValue) => {
+            const [key, value] = currentValue.split("=");
+            accumulater[key] = value;
+            return accumulater;
+        }, {});
+
+        return paramsSplit;
+    }
 
     useEffect(() => {
         // API Access Token
@@ -102,6 +118,7 @@ function Spotify() {
     return (
         <>
             <div className='spotifyRow'>
+                <a href={`${AUTH_ENDPOINT}?client_id=${CLIENT_ID}&response_type=${RESPONSE_TYPE}&redirect_uri=${REDIRECT_URI}&show_dialog=true`}>Login to Spotify</a>
                 <Container>
                     <InputGroup className='mb-3' size="lg">
                         <FormControl
