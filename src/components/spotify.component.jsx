@@ -68,7 +68,7 @@ function Spotify() {
             }
         }
 
-        var songID = await fetch('https://api.spotify.com/v1/search?q=' + searchInput.searchText + '&type=track', searchParameters)
+        var songID = await fetch('https://api.spotify.com/v1/search?q=' + searchInput.searchText + '&type=track&limit=8', searchParameters)
             .then(response => response.json())
             .then(data => {
                 console.log(data.tracks.items);
