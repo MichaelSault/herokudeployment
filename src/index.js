@@ -16,13 +16,13 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 
 root.render(
   <React.StrictMode>
-    <HashRouter>
+    <BrowserRouter>
       <Routes>
         <Route path='/' element={<Home/>}/>
         <Route path='/UnlistedPage/Invite' element={<AddGuest/>}/>
         <Route path='/UnlistedPage/GuestList' element={<GuestList/>}/>
         <Route path='/UnlistedPage/Spotify' element={<Spotify/>}/>
       </Routes>
-    </HashRouter>
+    </BrowserRouter>
   </React.StrictMode>
 );

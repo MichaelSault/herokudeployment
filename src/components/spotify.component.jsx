@@ -12,6 +12,7 @@ const RESPONSE_TYPE = "token"
 function Spotify() {
     const [searchInput, setSearchInput] = useState("");
     const [accessToken, setAccessToken] = useState("");
+    const [userToken, setUserToken] = useState("");
     const [songs, setSongs] = useState([]);
 
     //expecting http://localhost:5000/#access_token=BQDkVYFtNgdg0NOIFgMMT_PNXg43ZprAAmznLI6PnFpI60ZNTctdMaeecAmz3aZ7xftxzrf9nyYmthTVR8sC1kPSPtDl4KMEDE20KGbRPEx9lLtCJrLhiJ8Df1fPnW1iinRyimKEKP0gFoDy-Gj_W9QlzAR0PvIWK6ltL4m0lfOVFg&token_type=Bearer&expires_in=3600
@@ -20,6 +21,7 @@ function Spotify() {
         const paramsInUrl = stringAfterHashtag.split("&");
 
         const paramsSplit = paramsInUrl.reduce((accumulater, currentValue) => {
+            console.log(currentValue);
             const [key, value] = currentValue.split("=");
             accumulater[key] = value;
             return accumulater;
@@ -29,6 +31,17 @@ function Spotify() {
     }
 
     useEffect(() => {
+        if(window.location.hash) {
+            const {access_token, expires_in, token_type} = getReturnedParamsFromSpotifyAuth(window.location.hash);
+            console.log({access_token});
+            setUserToken(access_token);
+
+            localStorage.clear();
+            localStorage.setItem("accessToken", access_token);
+            localStorage.setItem("tokenType", token_type);
+            localStorage.setItem("expiresIn", expires_in);
+        }
+
         // API Access Token
         var authParameters = {
             method: 'POST',
@@ -40,6 +53,8 @@ function Spotify() {
         fetch('https://accounts.spotify.com/api/token', authParameters)
             .then(result => result.json())
             .then(data => setAccessToken(data.access_token));
+        
+            console.log(accessToken);
     }, []);
 
     const handleChange = (event) => {
@@ -90,35 +105,44 @@ function Spotify() {
     async function addSong(song) {
         console.log("Adding song: " + song);
 
+        console.log(userToken);
+
 
         //GET request to get artistID
         var searchParameters = {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization': 'Bearer ' + accessToken
+                'Authorization': 'Bearer ' + userToken
             },
             body: {
                 'position': 0
             }
         }
 
-        var updatedPlaylist = await fetch('https://api.spotify.com/v1/playlists/4RucsnbAYwsUa7FkmPDJJi/tracks?uris=' + song , searchParameters)
+        var updatedPlaylist = await fetch('https://api.spotify.com/v1/playlists/4RucsnbAYwsUa7FkmPDJJi/tracks?uris=' + song , {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer ' + userToken
+            }
+        })
             .then(response => response.json())
             .then(data => {
                 console.log(data.tracks.items);
                 setSongs(data.tracks.items);
-            })
+            });
 
         
         
     }
 
     console.log(songs);
+    console.log(userToken);
     return (
         <>
             <div className='spotifyRow'>
-                <a href={`${AUTH_ENDPOINT}?client_id=${CLIENT_ID}&response_type=${RESPONSE_TYPE}&redirect_uri=${REDIRECT_URI}&show_dialog=true`}>Login to Spotify</a>
+                <a href={`${AUTH_ENDPOINT}?client_id=${CLIENT_ID}&response_type=${RESPONSE_TYPE}&redirect_uri=${REDIRECT_URI}&show_dialog=true&scope=playlist-modify-public`}>Login to Spotify</a>
                 <Container>
                     <InputGroup className='mb-3' size="lg">
                         <FormControl
