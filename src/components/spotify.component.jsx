@@ -3,11 +3,11 @@ import { Container, InputGroup, FormControl, Button, Row, Card } from 'react-boo
 import { useState, useEffect } from 'react';
 
 //react has a built in dotenv, so we do not have to install it manually
-const CLIENT_ID = process.env.REACT_APP_SPOTIFY_ID;
-const CLIENT_SECRET = process.env.REACT_APP_SPOTIFY_SECRET;
-const REDIRECT_URI = process.env.REACT_APP_REDIRECT_URI;
-const AUTH_ENDPOINT = "https://accounts.spotify.com/authorize"
-const RESPONSE_TYPE = "token"
+const CLIENT_ID = "79e3f01d09a048a0a6384adb134db9ed";
+const CLIENT_SECRET = "5721173d80eb435b839ef571622c2047";
+const REDIRECT_URI = "http://rsvp.justinandtanyawedding.com/";
+const AUTH_ENDPOINT = "https://accounts.spotify.com/authorize";
+const RESPONSE_TYPE = "token";
 
 function Spotify() {
     const [searchInput, setSearchInput] = useState("");
