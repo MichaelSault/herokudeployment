@@ -678,6 +678,16 @@ hr {
   padding-top: 6em;
 }
 
+a.spotifyButton{
+  padding: 1px 6px;
+  border: 1px outset white;
+  border-radius: 3px;
+  color: darkgreen;
+  background-color: #141414;
+  text-decoration: none;
+  padding-bottom: 2px;
+}
+
 .titleText {
   align-content: left;
 }
