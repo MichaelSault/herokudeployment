@@ -31,7 +31,7 @@ app.get('/', (req, res) => {
 });
 
 
-//DB SCHEMA AND MODEL
+//GUEST SCHEMA AND MODEL
 const guestSchema = mongoose.Schema({
     familyID: String,
     email: String,
@@ -46,7 +46,7 @@ const guestSchema = mongoose.Schema({
     civil: Number
 });
 
-//DB SCHEMA AND MODEL
+//RSVP SCHEMA AND MODEL
 const RSVPSchema = mongoose.Schema({
     familyID: String,
     email: String,
@@ -62,9 +62,32 @@ const RSVPSchema = mongoose.Schema({
     comment: String
 });
 
+//SONG SCHEMA AND MODEL
+const songSchema = mongoose.Schema({
+    songName: String,
+    songURI: String,
+    songArtist: String
+});
+
 const Guests = mongoose.model("Guests", guestSchema);
 const RSVPs = mongoose.model("RSVPs", RSVPSchema);
+const Songs = mongoose.model("Songs", songSchema);
 
+
+app.post("/AddSong", async (req, res) => {
+    console.log(req.body);
+
+    const submittedSong = Songs.create({
+        songName: req.body.name,
+        songURI: req.body.uri,
+        songArtist: req.body.artist
+    })
+    .then(doc => console.log(doc))
+    .catch(err => console.log(err));
+
+
+    res.send(submittedSong);
+});
 
 app.post("/InviteGuest", async (req, res) => {
 

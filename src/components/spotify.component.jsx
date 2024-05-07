@@ -1,6 +1,7 @@
 import '../App.css';
 import { Container, InputGroup, FormControl, Button, Row, Card } from 'react-bootstrap';
 import { useState, useEffect } from 'react';
+import axios from 'axios';
 
 //react has a built in dotenv, so we do not have to install it manually
 const CLIENT_ID = "79e3f01d09a048a0a6384adb134db9ed";
@@ -103,7 +104,7 @@ function Spotify() {
 
     // Spotify Search function
     async function addSong(song) {
-        console.log("Adding song: " + song);
+        console.log("Adding song: " + song.uri);
 
         console.log(userToken);
 
@@ -120,18 +121,26 @@ function Spotify() {
             }
         }
 
-        var updatedPlaylist = await fetch('https://api.spotify.com/v1/playlists/4RucsnbAYwsUa7FkmPDJJi/tracks?uris=' + song , {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                'Authorization': 'Bearer ' + userToken
-            }
-        })
+        try {
+            var updatedPlaylist = await fetch('https://api.spotify.com/v1/playlists/4RucsnbAYwsUa7FkmPDJJi/tracks?uris=' + song.uri , {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': 'Bearer ' + userToken
+                }
+            })
             .then(response => response.json())
             .then(data => {
                 console.log(data.tracks.items);
                 setSongs(data.tracks.items);
             });
+        } catch {
+            console.log("Song:", song.name, "sent to songs db.");
+
+            axios.post("https://tanya-wedding-website-94146677832a.herokuapp.com/AddSong", song)
+            .then(res => console.log(res))
+            .catch(err => console.log(err));
+        }
 
         
         
@@ -175,7 +184,7 @@ function Spotify() {
                                     <Card.Body>
                                         <Card.Title>{song.name}</Card.Title>
                                     </Card.Body>
-                                    <Button onClick={() => addSong(song.uri)}>Add Song</Button>
+                                    <Button onClick={() => addSong(song)}>Add Song</Button>
                                 </Card>
                             )
                         })}
