@@ -84,7 +84,7 @@ function Spotify() {
             }
         }
 
-        var songID = await fetch('https://api.spotify.com/v1/search?q=' + searchInput.searchText + '&type=track&limit=8', searchParameters)
+        var songID = await fetch('https://api.spotify.com/v1/search?q=' + searchInput.searchText + '&type=track&limit=9', searchParameters)
             .then(response => response.json())
             .then(data => {
                 console.log(data.tracks.items);
@@ -174,7 +174,7 @@ function Spotify() {
                     </InputGroup>
                 </Container>
                 <Container>
-                    <Row className='mx-2 row row-cols-4'>
+                    <Row className='mx-2 row row-cols-md-3 row-col-sm-2'>
                         {songs.map((song, i) => {
                             return (
                                 <Card>
