@@ -27,6 +27,10 @@ function RSVPTag() {
         comment: String
     });
 
+    const [spotifyAccount, setSpotifyAccount] = useState({
+        familySpotify: String
+    })
+
     const [returnedFamilyData, setReturnedFamilyData] = useState([]);
 
 
@@ -64,6 +68,18 @@ function RSVPTag() {
         setReturnedFamilyData(newArr);
         console.log(returnedFamilyData);
     };
+
+    const handleSpotifyChange = (event) => {
+        const {name, value} = event.target;
+        console.log(value);
+    
+        setSpotifyAccount(prev => {
+            return {
+                ...prev,
+                [name]: value,
+            };
+        });
+    };
     
     const handleSubmit = async(event) => {
         event.preventDefault();
@@ -82,7 +98,7 @@ function RSVPTag() {
 
     const submitRSVP = async(event) => {
         event.preventDefault();
-        const submitCount = 0;
+        
         console.log(returnedFamilyData);
 
         console.log(returnedFamilyData.length);
@@ -96,6 +112,10 @@ function RSVPTag() {
 
             console.log(familyData);
         })}
+
+        const spotifyData = axios.post("/submitSpotify", spotifyData)
+        .then(res => res.data)
+        .catch(err => console.log(err));
 
         alert("RSVP Submitted Successfully");
         handleClose();
@@ -205,7 +225,22 @@ function RSVPTag() {
             
                     )
                 })}
-
+                <Form>
+                    <Form.Group>
+                        <FloatingLabel
+                            controlId="spotify"
+                            name="spotify"
+                            label="Spotify Account (To Recommend Songs)"
+                            className="mb-3"
+                        >
+                        <Form.Control 
+                            type="text" 
+                            name="spotify" 
+                            onChange={(e) => handleSpotifyChange(e)}
+                        />
+                        </FloatingLabel>
+                    </Form.Group>
+                </Form>
             </Modal.Body>
             
             <Modal.Footer>
