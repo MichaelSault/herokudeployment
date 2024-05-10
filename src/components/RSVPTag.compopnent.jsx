@@ -5,6 +5,7 @@ import { Modal } from "react-bootstrap";
 import { Form } from "react-bootstrap";
 import axios from 'axios';
 import '../App.css';
+import { WidthFull } from '@mui/icons-material';
 
 function RSVPTag() {
 
@@ -221,7 +222,9 @@ function RSVPTag() {
                                 </FloatingLabel>
 
                             </Form.Group>
+                            <hr className='hrRSVP'/>
                         </Form>
+                        
             
                     )
                 })}
@@ -230,7 +233,7 @@ function RSVPTag() {
                         <FloatingLabel
                             controlId="spotify"
                             name="spotify"
-                            label="Spotify Account (To Recommend Songs)"
+                            label="Spotify Account (To Add to Wedding Playlist)"
                             className="mb-3"
                         >
                         <Form.Control 
