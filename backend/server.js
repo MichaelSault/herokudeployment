@@ -69,9 +69,15 @@ const songSchema = mongoose.Schema({
     songArtist: String
 });
 
+//SONG SCHEMA AND MODEL
+const spotifySchema = mongoose.Schema({
+    email: String
+});
+
 const Guests = mongoose.model("Guests", guestSchema);
 const RSVPs = mongoose.model("RSVPs", RSVPSchema);
 const Songs = mongoose.model("Songs", songSchema);
+const SpotifyAccounts = mongoose.model("SpotifyAccounts", spotifySchema);
 
 
 app.post("/AddSong", async (req, res) => {
@@ -163,6 +169,14 @@ app.post("/submitRSVP", async (req, res) => {
         civil: req.body.civil,
         diet: req.body.diet,
         comment: req.body.comment
+    }).then(doc => console.log(doc))
+    .catch(err => console.log(err));
+});
+
+//create a new rsvp response entry
+app.post("/submitSpotify", async (req, res) => {
+    SpotifyAccounts.create({
+        email: req.body.familySpotify
     }).then(doc => console.log(doc))
     .catch(err => console.log(err));
 });
