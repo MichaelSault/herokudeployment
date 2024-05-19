@@ -141,9 +141,7 @@ function Spotify() {
             .then(res => console.log(res))
             .catch(err => console.log(err));
         }
-
-        
-        
+        alert("Successfully Added " + song.name);
     }
 
     console.log(songs);
