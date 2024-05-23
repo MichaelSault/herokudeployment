@@ -114,10 +114,6 @@ function RSVPTag() {
             console.log(familyData);
         })}
 
-        const spotifyData = axios.post("/submitSpotify", spotifyData)
-        .then(res => res.data)
-        .catch(err => console.log(err));
-
         alert("RSVP Submitted Successfully");
         handleClose();
     };
@@ -220,30 +216,11 @@ function RSVPTag() {
                                     onChange={(e) => handleFamilyChange(index, e)}
                                 />
                                 </FloatingLabel>
-
                             </Form.Group>
                             <hr className='hrRSVP'/>
                         </Form>
-                        
-            
                     )
                 })}
-                <Form>
-                    <Form.Group>
-                        <FloatingLabel
-                            controlId="spotify"
-                            name="spotify"
-                            label="Spotify Account (To Add to Wedding Playlist)"
-                            className="mb-3"
-                        >
-                        <Form.Control 
-                            type="text" 
-                            name="spotify" 
-                            onChange={(e) => handleSpotifyChange(e)}
-                        />
-                        </FloatingLabel>
-                    </Form.Group>
-                </Form>
             </Modal.Body>
             
             <Modal.Footer>
