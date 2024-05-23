@@ -63,6 +63,7 @@ function AddGuest() {
 
         axios.post("https://tanya-wedding-website-94146677832a.herokuapp.com/InviteGuest", guest)
         .then(res => console.log(res))
+        .then(alert("Guest Added!"))
         .catch(err => console.log(err));
 
     };

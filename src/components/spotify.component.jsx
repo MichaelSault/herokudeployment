@@ -149,9 +149,9 @@ function Spotify() {
     return (
         <>
             <div className='spotifyRow'>
-                { userToken ? <p>You are logged in!</p> :
+                {/* { userToken ? <p>You are logged in!</p> :
                     <a className='spotifyButton' href={`${AUTH_ENDPOINT}?client_id=${CLIENT_ID}&response_type=${RESPONSE_TYPE}&redirect_uri=${REDIRECT_URI}&show_dialog=true&scope=playlist-modify-public`}>Login to Spotify</a>
-                }
+                } */}
                 <Container style={{marginTop: '1rem'}}>
                     <InputGroup className='mb-3' size="lg">
                         <FormControl

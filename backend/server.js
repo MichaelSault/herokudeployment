@@ -189,6 +189,7 @@ app.get("/guests", (req, res) => {
 
 //delete a guest from the db
 app.delete("/delete/:id", (req, res) => {
+    console.log(req.params);
     Guests.findByIdAndDelete({_id: req.params.id})
     .then(doc => console.log(doc))
     .catch((err) => console.log(err));
@@ -196,6 +197,7 @@ app.delete("/delete/:id", (req, res) => {
 
 //update a guests information by id
 app.put("/update/:id", (req, res) => {
+    console.log(req.params);
     Guests.findByIdAndUpdate({_id: req.params.id}, {
         firstName: req.body.firstName,
         lastName: req.body.lastName,
@@ -212,6 +214,7 @@ app.put("/update/:id", (req, res) => {
 });
 
 app.put("/update/:id", (req, res) => {
+    console.log("update 2:", req.params);
     Guests.findByIdAndUpdate({_id: req.params.id}, {
         eventName: eventName
     })
